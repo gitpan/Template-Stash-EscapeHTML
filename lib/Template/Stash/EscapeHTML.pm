@@ -3,7 +3,7 @@ package Template::Stash::EscapeHTML;
 use strict;
 use Template::Config;
 use base ($Template::Config::STASH);
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 sub get {
     my($self, @args) = @_;
@@ -21,6 +21,7 @@ sub html_filter {
         s/</&lt;/g;
         s/>/&gt;/g;
         s/"/&quot;/g;
+        s/'/&#39;/g;
     }
     return $text;
 }
